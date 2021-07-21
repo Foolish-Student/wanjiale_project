@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.framework.modules.product.dao.ProductManagementInfoDao">
+
+    <resultMap type="com.framework.modules.product.entity.ProductManagementInfoEntity" id="InfoMap">
+        <result property="id" column="id"/>
+        <result property="productId" column="product_num"/>
+        <result property="productModel" column="product_model"/>
+        <result property="productName" column="product_name"/>
+        <result property="productCategory" column="product_category"/>
+        <result property="barCode" column="bar_code"/>
+        <result property="productUnit" column="product_unit"/>
+        <result property="productSize" column="product_size"/>
+        <result property="productPrice" column="product_price"/>
+        <result property="productInvoicePrice" column="product_invoice_price"/>
+        <result property="productBugPrice" column="product_bug_price"/>
+        <result property="productWeight" column="product_weight"/>
+        <result property="productBulk" column="product_bulk"/>
+        <result property="productLength" column="product_length"/>
+        <result property="productWidth" column="product_width"/>
+        <result property="deliverFromGodown" column="deliver_from_godown"/>
+        <result property="expiryDate" column="expiry_date"/>
+        <result property="productAfterSale" column="product_after_sale"/>
+    </resultMap>
+
+    <!--添加产品信息-->
+    <insert id="insProductAll" parameterType="com.framework.modules.product.entity.ProductManagementInfoEntity">
+        insert into product_management_info
+        (product_num, product_model, product_name, product_category, bar_code, product_unit, product_size, product_price,
+         product_invoice_price, product_bug_price, product_weight, product_bulk, product_length, product_width,
+         deliver_from_godown, expiry_date, product_after_sale)  values
+        (
+            #{productNum},
+            #{productModel} ,
+            #{productName} ,
+            #{productCategory} ,
+            #{barCode} ,
+            #{productUnit} ,
+            #{productSize} ,
+            #{productPrice} ,
+            #{productInvoicePrice} ,
+            #{productBugPrice} ,
+            #{productWeight} ,
+            #{productBulk} ,
+            #{productLength} ,
+            #{productWidth} ,
+            #{deliverFromGodown} ,
+            #{expiryDate} ,
+            #{productAfterSale}
+        )
+    </insert>
+
+    <!--修改产品信息-->
+    <update id="upProduct" parameterType="com.framework.modules.product.entity.ProductManagementInfoEntity">
+        update product_management_info
+        <set>
+            <if test="productNum != null and productNum != ''">
+                product_num = #{productNum},
+            </if>
+            <if test="productModel != null and productModel != ''">
+                product_model = #{productModel},
+            </if>
+            <if test="productName != null and productName != ''">
+                product_name = #{productName},
+            </if>
+            <if test="productCategory != null and productCategory != ''">
+                product_category = #{productCategory},
+            </if>
+            <if test="barCode != null and barCode != ''">
+                bar_code = #{barCode},
+            </if>
+            <if test="productUnit != null and productUnit != ''">
+                product_unit = #{productUnit},
+            </if>
+            <if test="productSize != null and productSize != ''">
+                product_size = #{productSize},
+            </if>
+            <if test="productPrice != null and productPrice != ''">
+                product_price = #{productPrice},
+            </if>
+            <if test="productInvoicePrice != null and productInvoicePrice != ''">
+                product_invoice_price = #{productInvoicePrice},
+            </if>
+            <if test="productBugPrice != null and productBugPrice != ''">
+                product_bug_price = #{productBugPrice},
+            </if>
+            <if test="productWeight != null and productWeight != ''">
+                product_weight = #{productWeight},
+            </if>
+            <if test="productBulk != null and productBulk != ''">
+                product_bulk = #{productBulk},
+            </if>
+            <if test="productLength != null and productLength != ''">
+                product_length = #{productLength},
+            </if>
+            <if test="productWidth != null and productWidth != ''">
+                product_width = #{productWidth},
+            </if>
+            <if test="deliverFromGodown != null and deliverFromGodown != ''">
+                deliver_from_godown = #{deliverFromGodown},
+            </if>
+            <if test="expiryDate != null and expiryDate != ''">
+                expiry_date = #{expiryDate},
+            </if>
+            <if test="productAfterSale != null and productAfterSale != ''">
+                product_after_sale = #{productAfterSale}
+            </if>
+        </set>
+        where 1 = 1 and  id = #{id};
+    </update>
+
+    <!--批量删除-->
+    <delete id="delProduct" parameterType="java.util.List">
+        delete t from product_management_info t where t.id in
+        <foreach collection="list" item="temp" open="(" close=")" separator=",">
+            #{temp}
+        </foreach>
+    </delete>
+
+    <!--查询-->
+    <select id="query" parameterType="java.util.Map" resultType="com.framework.modules.product.entity.ProductManagementInfoEntity">
+        select *
+--                t.id, t.product_num, t.product_model, t.product_name, t.product_category, t.bar_code, t.product_size, t.product_price, t.product_invoice_price
+        from product_management_info t where 1 = 1
+        <if test="id != null and id != ''">
+            and t.id = #{id}
+        </if>
+<!--        <if test="productNum != null and productNum != ''">-->
+<!--            and t.product_num = #{productNum}-->
+<!--        </if>-->
+<!--        <if test="productModel != null and productModel != ''">-->
+<!--            and t.product_model = #{productModel}-->
+<!--        </if>-->
+<!--        <if test="productName != null and productName != ''">-->
+<!--            and t.product_name = #{productName}-->
+<!--        </if>-->
+<!--        <if test="productCategory != null and productCategory != ''">-->
+<!--            and t.product_category = #{productCategory}-->
+<!--        </if>-->
+    </select>
+
+    <!--明细查询-->
+    <select id="queryinfo" parameterType="Integer" resultType="com.framework.dto.ProductQueryInfoModel">
+        select t.product_num, t.product_model, t.product_name, t.product_category, t.product_price, t.product_bug_price ,
+               t.product_invoice_price, t.product_unit, t.product_size, t.product_weight, t.product_bulk, t.product_length,
+               t.product_width, t.deliver_from_godown, t.expiry_date, t.product_after_sale
+        from product_management_info t where 1 = 1
+        <if test="id != null">
+            and t.id = #{id}
+        </if>
+    </select>
+
+
+
+
+
+    <select id="queryPageList" parameterType="java.util.Map" resultType="com.framework.dto.ProductPageInfoModel">
+        SELECT
+        *
+        FROM
+        product_management_info t
+        WHERE
+        1=1
+            <if test="productNum != null and productNum != ''">
+                and t.product_num = #{productNum}
+            </if>
+            <if test="productName != null and productName != ''">
+                AND t.product_name = #{productName}
+            </if>
+            <if test="productCategory != null and productCategory != ''">
+                AND t.product_category = #{productCategory}
+            </if>
+            <if test="productModel != null and productModel != ''">
+                AND t.product_model = #{productModel}
+            </if>
+            ORDER BY t.product_num  DESC limit #{start}, #{limit}
+    </select>
+
+
+    <select id="queryCount" parameterType="java.util.Map" resultType="int">
+        SELECT
+        count(id)
+        FROM
+        product_management_info t
+        WHERE
+        1=1
+        <if test="productNum != null and productNum != ''">
+            AND t.product_num  = #{productNum}
+        </if>
+        <if test="productName != null and productName != ''">
+            AND t.product_name = #{productName}
+        </if>
+        <if test="productCategory != null and productCategory != ''">
+            AND t.product_category = #{productCategory}
+        </if>
+        <if test="productModel != null and productModel != ''">
+            AND t.product_model = #{productModel}
+        </if>
+    </select>
+</mapper>

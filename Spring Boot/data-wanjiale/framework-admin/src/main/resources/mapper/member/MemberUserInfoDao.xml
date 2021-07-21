@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.framework.modules.member.dao.MemberUserInfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.framework.modules.member.entity.MemberUserInfoEntity" id="userInfoMap">
+        <result property="userId" column="user_id"/>
+        <result property="loginName" column="login_name"/>
+        <result property="password" column="password"/>
+        <result property="userName" column="user_name"/>
+        <result property="roleName" column="role_name"/>
+
+        <result property="sex" column="sex"/>
+        <result property="email" column="email"/>
+        <result property="mobile" column="mobile"/>
+        <result property="remark" column="remark"/>
+        <result property="status" column="status"/>
+
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="createBy" column="create_by"/>
+        <result property="updateBy" column="update_by"/>
+    </resultMap>
+
+    <select id="queryPageList" parameterType="java.util.Map" resultMap="userInfoMap">
+        SELECT
+            *
+        FROM
+            t_member_user_info t
+        WHERE
+            1=1
+
+            <if test="loginName != null and loginName != ''">
+                AND t.login_name  like concat('%',#{loginName},'%')
+            </if>
+
+            <if test="userName != null and userName != ''">
+                AND t.user_name  like concat('%',#{userName},'%')
+            </if>
+            <if test="roleName != null and roleName != ''">
+                AND t.role_name = #{roleName}
+            </if>
+
+            <if test="mobile != null and mobile != ''">
+                AND t.mobile  like concat('%',#{mobile},'%')
+            </if>
+
+            <if test="sex != null and sex != ''">
+                AND t.sex = #{sex}
+            </if>
+            <if test="status != null and status != ''">
+                AND t.status = #{status}
+            </if>
+            ORDER BY t.update_time  DESC limit #{start}, #{limit}
+
+    </select>
+
+    <select id="queryCount" parameterType="java.util.Map" resultType="int">
+        SELECT
+            count(user_id)
+        FROM
+            t_member_user_info t
+        WHERE
+                1=1
+
+                <if test="loginName != null and loginName != ''">
+                    AND t.login_name  like concat('%',#{loginName},'%')
+                </if>
+
+                <if test="userName != null and userName != ''">
+                    AND t.user_name  like concat('%',#{userName},'%')
+                </if>
+                <if test="roleName != null and roleName != ''">
+                    AND t.role_name = #{roleName}
+                </if>
+
+                <if test="mobile != null and mobile != ''">
+                    AND t.mobile  like concat('%',#{mobile},'%')
+                </if>
+
+                <if test="sex != null and sex != ''">
+                    AND t.sex = #{sex}
+                </if>
+                <if test="status != null and status != ''">
+                    AND t.status = #{status}
+                </if>
+
+    </select>
+
+    <select id="selectById"  resultType="com.framework.modules.member.entity.MemberUserInfoEntity">
+        select * from t_member_user_info where  user_id=#{userId}
+    </select>
+
+    <insert id="insert" parameterType="com.framework.modules.member.entity.MemberUserInfoEntity">
+       INSERT INTO t_member_user_info
+    ( login_name, PASSWORD, user_name, role_name, sex, email, mobile, remark, STATUS, create_time, update_time, create_by, update_by )
+            VALUES
+                (
+                #{loginName},
+                #{password},
+                 #{userName},
+                 #{roleName},
+                 #{sex},
+                 #{email},
+                 #{mobile},
+                 #{remark},
+                1,
+                sysdate( ),
+                SYSDATE( ),
+                'system',
+                'system'
+	      );
+    </insert>
+
+    <update id="updateAllColumnById" parameterType="com.framework.modules.member.entity.MemberUserInfoEntity">
+       UPDATE t_member_user_info
+            SET  login_name = #{loginName} , password = #{password}, user_name = #{userName}, role_name = #{roleName} , sex = #{sex}
+         , mobile = #{mobile} , email = #{email} , remark = #{remark},STATUS = #{status} , create_time = sysdate( ) , update_time =sysdate( )
+        WHERE   user_id=#{userId} ;
+    </update>
+
+    <delete id="deleteBatchIds"  parameterType="java.util.List">
+        DELETE t from t_member_user_info t
+        WHERE 1=1
+        <if test="userIds != null and userIds.size > 0">
+            AND user_id IN
+            <foreach collection="userIds" index="index" item="item" open="(" separator="," close=")" >
+                #{item}
+            </foreach>
+        </if>
+
+    </delete>
+
+    <update id="enableBatchIds"  parameterType="java.util.List">
+        UPDATE t_member_user_info SET STATUS = 1 , update_time=sysdate( )
+        WHERE 1=1
+        <if test="userIds != null and userIds.size > 0">
+            AND user_id IN
+            <foreach collection="userIds" index="index" item="item" open="(" separator="," close=")" >
+                #{item}
+            </foreach>
+        </if>
+
+    </update>
+
+    <update id="disableBatchIds"  parameterType="java.util.List">
+        UPDATE t_member_user_info SET STATUS = 2 , update_time=sysdate( )
+        WHERE 1=1
+        <if test="userIds != null and userIds.size > 0">
+            AND user_id IN
+            <foreach collection="userIds" index="index" item="item" open="(" separator="," close=")" >
+                #{item}
+            </foreach>
+        </if>
+
+    </update>
+
+    <update id="updatePassword">
+    update  t_member_user_info set password=#{password} where user_id=#{userId}
+    </update>
+
+    <select id="queryPasswordById" parameterType="Integer" resultType="String">
+        select password from t_member_user_info where user_id = #{userId}
+    </select>
+
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.framework.modules.recommend.dao.UserInfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.framework.modules.recommend.entity.UserInfoEntity" id="userInfoMap">
+        <result property="userId" column="user_id"/>
+        <result property="loginName" column="login_name"/>
+        <result property="password" column="password"/>
+        <result property="userName" column="user_name"/>
+    </resultMap>
+
+    <select id="selectUserByUserName" parameterType="java.lang.String" resultType="com.framework.modules.recommend.entity.UserInfoEntity">
+        select * from t_user_info where 1=1 and login_name=#{username}
+    </select>
+
+    <select id="selectUserById" parameterType="java.lang.String" resultType="com.framework.modules.recommend.entity.UserInfoEntity">
+        select * from t_user_info where 1=1 and user_id=#{userId}
+    </select>
+
+    <select id="getUserIdList"  resultType="int">
+        select DISTINCT (user_id) from t_user_course_score_ref
+    </select>
+
+
+</mapper>

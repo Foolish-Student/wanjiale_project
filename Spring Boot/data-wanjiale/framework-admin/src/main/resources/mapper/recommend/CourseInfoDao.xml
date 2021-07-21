@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.framework.modules.recommend.dao.CourseInfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.framework.modules.recommend.entity.CourseInfoEntity" id="courseInfoMap">
+        <result property="courseId" column="course_id"/>
+        <result property="courseTitle" column="course_title"/>
+        <result property="courseJpegUrl" column="course_jpeg_url"/>
+        <result property="courseDesc" column="course_desc"/>
+        <result property="technicalLabel" column="technical_label"/>
+        <result property="extendedLabel" column="extended_label"/>
+        <result property="praisePoints" column="praise_points"/>
+        <result property="subscribersTotal" column="subscribers_total"/>
+        <result property="systemScore" column="system_score"/>
+        <result property="ascriptionDepartment" column="ascription_department"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="status" column="status"/>
+    </resultMap>
+
+    <select id="getCourseIdList"  resultType="int">
+        select DISTINCT (course_id) from t_user_course_score_ref
+    </select>
+
+
+    <select id="getCourseListById" parameterType="java.util.List" resultMap="courseInfoMap">
+        SELECT
+            *
+        FROM
+            t_course_info t
+        WHERE
+            1=1
+        <if test="list != null and list.size > 0">
+            AND t.course_id in
+            <foreach collection="list" index="index" item="item" open="(" separator="," close=")" >
+                #{item}
+            </foreach>
+        </if>
+        order by field(course_id,
+        <foreach collection="list" index="index" item="item" open="" separator="," close=")" >
+            #{item}
+        </foreach>
+
+    </select>
+
+
+</mapper>

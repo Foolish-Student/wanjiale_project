@@ -1,0 +1,45 @@
+2021-07-13 15:48:00,754 [WARN] [main] o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer [Jdk14Logger.java : 99] 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/29163/.m2/repository/org/json/json/20140107/json-20140107.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/29163/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-07-13 15:48:00,776 [INFO] [main] com.framework.service.ds.DevTest [Jdk14Logger.java : 99] Starting DevTest on liwanwan with PID 13600 (started by 29163 in E:\Summer Training 2021\wanjiale_project\Group23\data-wanjiale\framework-admin)
+2021-07-13 15:48:00,778 [INFO] [main] com.framework.service.ds.DevTest [Jdk14Logger.java : 99] The following profiles are active: dev
+2021-07-13 15:48:05,752 [WARN] [main] org.springframework.data.convert.CustomConversions [CustomConversions.java : 216] Registering converter from class org.joda.time.LocalDateTime to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2021-07-13 15:48:05,777 [WARN] [main] org.springframework.data.convert.CustomConversions [CustomConversions.java : 216] Registering converter from class org.joda.time.LocalDateTime to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2021-07-13 15:48:05,793 [WARN] [main] org.springframework.data.convert.CustomConversions [CustomConversions.java : 216] Registering converter from class org.joda.time.LocalDateTime to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2021-07-13 15:48:07,731 [INFO] [main] com.framework.service.ds.DevTest [Jdk14Logger.java : 99] Started DevTest in 7.611 seconds (JVM running for 9.223)
+2021-07-13 15:49:11,348 [WARN] [main] o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer [Jdk14Logger.java : 99] 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/29163/.m2/repository/org/json/json/20140107/json-20140107.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/29163/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-07-13 15:49:11,374 [INFO] [main] com.framework.service.ds.DevTest [Jdk14Logger.java : 99] Starting DevTest on liwanwan with PID 11356 (started by 29163 in E:\Summer Training 2021\wanjiale_project\Group23\data-wanjiale\framework-admin)
+2021-07-13 15:49:11,375 [INFO] [main] com.framework.service.ds.DevTest [Jdk14Logger.java : 99] The following profiles are active: dev
+2021-07-13 15:49:16,563 [WARN] [main] org.springframework.data.convert.CustomConversions [CustomConversions.java : 216] Registering converter from class org.joda.time.LocalDateTime to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2021-07-13 15:49:16,586 [WARN] [main] org.springframework.data.convert.CustomConversions [CustomConversions.java : 216] Registering converter from class org.joda.time.LocalDateTime to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2021-07-13 15:49:16,603 [WARN] [main] org.springframework.data.convert.CustomConversions [CustomConversions.java : 216] Registering converter from class org.joda.time.LocalDateTime to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2021-07-13 15:49:18,782 [INFO] [main] com.framework.service.ds.DevTest [Jdk14Logger.java : 99] Started DevTest in 8.193 seconds (JVM running for 9.745)
+2021-07-13 15:51:59,998 [WARN] [main] o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer [Jdk14Logger.java : 99] 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/29163/.m2/repository/org/json/json/20140107/json-20140107.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/29163/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-07-13 15:52:00,028 [INFO] [main] com.framework.service.ds.DevTest [Jdk14Logger.java : 99] Starting DevTest on liwanwan with PID 10572 (started by 29163 in E:\Summer Training 2021\wanjiale_project\Group23\data-wanjiale\framework-admin)
+2021-07-13 15:52:00,028 [INFO] [main] com.framework.service.ds.DevTest [Jdk14Logger.java : 99] The following profiles are active: dev
+2021-07-13 15:52:07,060 [WARN] [main] org.springframework.data.convert.CustomConversions [CustomConversions.java : 216] Registering converter from class org.joda.time.LocalDateTime to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2021-07-13 15:52:07,085 [WARN] [main] org.springframework.data.convert.CustomConversions [CustomConversions.java : 216] Registering converter from class org.joda.time.LocalDateTime to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2021-07-13 15:52:07,109 [WARN] [main] org.springframework.data.convert.CustomConversions [CustomConversions.java : 216] Registering converter from class org.joda.time.LocalDateTime to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2021-07-13 15:52:09,716 [INFO] [main] com.framework.service.ds.DevTest [Jdk14Logger.java : 99] Started DevTest in 10.397 seconds (JVM running for 11.955)
