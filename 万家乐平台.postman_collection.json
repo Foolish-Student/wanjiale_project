@@ -1,0 +1,685 @@
+{
+	"info": {
+		"_postman_id": "c30d50e4-5270-419d-948f-e3114245e80d",
+		"name": "万家乐平台",
+		"description": "万家乐经销商平台",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "登录模块-获取用户登录token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"LoginName_210\",\r\n    \"password\": \"pwd_210\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/data-wanjiale/sys/doLogin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"data-wanjiale",
+						"sys",
+						"doLogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "子账户管理-修改密码",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/shortmsg/test/shortMsg/send?userId=tfl&city=abc&phone=abc&smsContent=%E6%AD%A6%E6%B1%89027",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shortmsg",
+						"test",
+						"shortMsg",
+						"send"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "tfl"
+						},
+						{
+							"key": "city",
+							"value": "abc"
+						},
+						{
+							"key": "phone",
+							"value": "abc"
+						},
+						{
+							"key": "smsContent",
+							"value": "%E6%AD%A6%E6%B1%89027"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "会员信息-子账户管理-详情",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/data-wanjiale/member/user/info/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"data-wanjiale",
+						"member",
+						"user",
+						"info",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "会员信息-子账户管理-新增",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJlYjg0YmI0Y2M3YzYxMDM5OGRiNzYzYmE3ZDQyZDI1NyIsImlhdCI6MTYxOTMzNDUxNiwiZXhwIjoxNjE5MzM2MzE2fQ.1btbWjTA7ZBqJnUjGC1BG_U9m4Yrg-0tetLzqW6UtKoHD1CfIAdoaRiIgDniozSh9iVJBEyR3vN2fpkG6LBaEQ"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"loginName\": \"tfl02\",\r\n        \"password\": \"tfl02\",\r\n        \"userName\": \"tfl02\",\r\n        \"roleName\": \"生产部\",\r\n        \"sex\": \"男\",\r\n        \"email\": \"86@qq.com\",\r\n        \"mobile\": \"15342291462\",\r\n        \"remark\": \"秘书长02\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/data-wanjiale/member/user/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"data-wanjiale",
+						"member",
+						"user",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "会员信息-子账户管理-修改",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJlYjg0YmI0Y2M3YzYxMDM5OGRiNzYzYmE3ZDQyZDI1NyIsImlhdCI6MTYxOTMzNDUxNiwiZXhwIjoxNjE5MzM2MzE2fQ.1btbWjTA7ZBqJnUjGC1BG_U9m4Yrg-0tetLzqW6UtKoHD1CfIAdoaRiIgDniozSh9iVJBEyR3vN2fpkG6LBaEQ"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"userId\": 5,\r\n        \"loginName\": \"tfl\",\r\n        \"password\": \"tfl\",\r\n        \"userName\": \"tfl\",\r\n        \"roleName\": \"生产部\",\r\n        \"sex\": \"男\",\r\n        \"email\": \"861412409@qq.com\",\r\n        \"mobile\": \"15342291462\",\r\n        \"remark\": \"秘书长\",\r\n        \"status\": 1,\r\n        \"createTime\": \"2021-06-29 15:36:45\",\r\n        \"updateTime\": \"2021-06-29 15:36:45\",\r\n        \"createBy\": \"system\",\r\n        \"updateBy\": \"system\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/data-wanjiale/member/user/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"data-wanjiale",
+						"member",
+						"user",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "会员信息-子账户管理-批量删除",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJlYjg0YmI0Y2M3YzYxMDM5OGRiNzYzYmE3ZDQyZDI1NyIsImlhdCI6MTYxOTMzNDUxNiwiZXhwIjoxNjE5MzM2MzE2fQ.1btbWjTA7ZBqJnUjGC1BG_U9m4Yrg-0tetLzqW6UtKoHD1CfIAdoaRiIgDniozSh9iVJBEyR3vN2fpkG6LBaEQ"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[1,2]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/data-wanjiale/member/user/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"data-wanjiale",
+						"member",
+						"user",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "会员信息-子账户管理-列表查询",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJlYjg0YmI0Y2M3YzYxMDM5OGRiNzYzYmE3ZDQyZDI1NyIsImlhdCI6MTYxNzk1OTExNCwiZXhwIjoxNjE3OTYwOTE0fQ.Hi5BPVC4b1pO1_A_DmGLT-5xJVF2289o-zXJCvu4sfoaN1-gQ7cSlguOH-idD16ugLFeJv6Nhs7Twi6hvv17Tw"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"page\": \"1\",\r\n\t\"limit\":\"10\",\r\n\t\"loginName\":\"tfl\",\r\n    \"status\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/data-wanjiale/member/user/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"data-wanjiale",
+						"member",
+						"user",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "会员信息-子账户管理-批量启用",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJlYjg0YmI0Y2M3YzYxMDM5OGRiNzYzYmE3ZDQyZDI1NyIsImlhdCI6MTYxOTMzNDUxNiwiZXhwIjoxNjE5MzM2MzE2fQ.1btbWjTA7ZBqJnUjGC1BG_U9m4Yrg-0tetLzqW6UtKoHD1CfIAdoaRiIgDniozSh9iVJBEyR3vN2fpkG6LBaEQ"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[23,24]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/data-wanjiale/member/user/enable",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"data-wanjiale",
+						"member",
+						"user",
+						"enable"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/shortmsg/test/shortMsg/hello",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/shortmsg/test/shortMsg/hello",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shortmsg",
+						"test",
+						"shortMsg",
+						"hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "产品管理-添加产品",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n    {\r\n        \"productId\":\"4\"\r\n    }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/data-wanjiale/product/insall",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"data-wanjiale",
+						"product",
+						"insall"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "产品管理-修改产品",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productId\":\"2\",\r\n    \"productModel\":\"liwanwan\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/data-wanjiale/product/up",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"data-wanjiale",
+						"product",
+						"up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "产品管理-删除",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[7,8]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/data-wanjiale/product/del",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"data-wanjiale",
+						"product",
+						"del"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "4",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "产品管理-产品查询",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/data-wanjiale/product/query",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"data-wanjiale",
+						"product",
+						"query"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "产品管理-产品明细查询",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/data-wanjiale/product/queryinfo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"data-wanjiale",
+						"product",
+						"queryinfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "网店-删除",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n 1,2\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/data-wanjiale/store/del",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"data-wanjiale",
+						"store",
+						"del"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "网店-新增网店",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shopCategory\":\"aaaa\",\r\n    \"account\":\"asf\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/data-wanjiale/store/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"data-wanjiale",
+						"store",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "网店-修改网店",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shopId\":4,\r\n    \"account\":\"ccc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/data-wanjiale/store/up",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"data-wanjiale",
+						"store",
+						"up"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "网店-批量启用",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[3,4,5]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/data-wanjiale/store/start",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"data-wanjiale",
+						"store",
+						"start"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "网店-批量禁用",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/data-wanjiale/store/stop",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"data-wanjiale",
+						"store",
+						"stop"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "网店-分页查询",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shopId\":3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/data-wanjiale/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"data-wanjiale",
+						"list"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

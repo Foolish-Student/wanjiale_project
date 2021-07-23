@@ -12,7 +12,9 @@
 <br>
 <br>
 jdk 1.8
+
 MySQL 8.0.25
+
 node 14.17.3
 <br>
 <br>
